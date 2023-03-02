@@ -8,8 +8,8 @@ import sessionReducer from "./session";
 
 export const rootReducer = combineReducers({
   usersReducer,
-  sessionReducer
-})
+  sessionReducer,
+});
 
 let enhancer;
 

@@ -1,11 +1,12 @@
 import { Route, Switch } from "react-router-dom";
+import Login from "./components/Login";
 
 function App() {
   return (
     <>
       <Switch>
         <Route path="/">
-          <p>Hello!</p>
+          <Login />
         </Route>
       </Switch>
     </>

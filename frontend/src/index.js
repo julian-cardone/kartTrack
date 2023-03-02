@@ -9,8 +9,11 @@ import App from "./App";
 import configureStore from "./store";
 import csrfFetch from "./store/csrf";
 import * as sessionActions from "./store/session";
+import { createRoot } from 'react-dom/client';
 
 const store = configureStore();
+const domNode = document.getElementById("root");
+const root = createRoot(domNode);
 
 if (process.env.NODE_ENV !== "production") {
   window.store = store;
@@ -20,30 +23,30 @@ if (process.env.NODE_ENV !== "production") {
 
 function Root() {
   return (
-    <UserProvider>
+    // <UserProvider>
       <Provider store={store}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </Provider>
-    </UserProvider>
   );
 }
 
 const renderApplication = () => {
-  ReactDOM.render(
+  root.render(
     <React.StrictMode>
       <Root />
-    </React.StrictMode>,
-    document.getElementById("root")
+    </React.StrictMode>
   );
 };
 
-if (
-  sessionStorage.getItem("currentUser") === null ||
-  sessionStorage.getItem("X-CSRF-Token") === null
-) {
-  store.dispatch(sessionActions.restoreSession()).then(renderApplication);
-} else {
-  renderApplication();
-}
+// if (
+//   sessionStorage.getItem("currentUser") === null ||
+//   sessionStorage.getItem("X-CSRF-Token") === null
+// ) {
+//   store.dispatch(sessionActions.restoreSession()).then(renderApplication);
+// } else {
+//   renderApplication();
+// }
+
+renderApplication();
