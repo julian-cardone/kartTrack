@@ -6,7 +6,7 @@ function App() {
     <>
       <Switch>
         <Route path="/">
-          <Login />
+          <div>still working!</div>
         </Route>
       </Switch>
     </>
