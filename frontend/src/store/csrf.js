@@ -16,7 +16,11 @@ async function csrfFetch(url, options = {}) {
     }
     options.headers["X-CSRF-Token"] = sessionStorage.getItem("X-CSRF-Token");
   }
-
+  //fetch from backend
+  // if (process.env.NODE_ENV !== "production"){
+  //   url = `http://localhost:5000${url}`
+  // }
+  
   // call fetch with the url and the updated options hash
   const res = await fetch(url, options);
 

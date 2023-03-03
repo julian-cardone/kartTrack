@@ -2,12 +2,12 @@ import { useInput, useSubmit } from "../hooks";
 import * as sessionActions from "../store/session";
 
 function Login({ onSuccess }) {
-  const [credential, onCredentialChange] = useInput("username");
+  const [username, onUsernameChange] = useInput("username");
   const [password, onPasswordChange] = useInput("password");
 
   const [errors, onSubmit] = useSubmit({
     onSuccess,
-    action: sessionActions.login({ credential, password }),
+    action: sessionActions.login({ username, password }),
   });
 
   return (
