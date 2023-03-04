@@ -10,6 +10,10 @@ import configureStore from "./store";
 import csrfFetch from "./store/csrf";
 import * as sessionActions from "./store/session";
 import { createRoot } from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+// import $ from 'jquery';
+import Popper from 'popper.js';
 
 const store = configureStore();
 const domNode = document.getElementById("root");
